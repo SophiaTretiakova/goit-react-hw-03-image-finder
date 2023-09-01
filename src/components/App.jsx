@@ -1,16 +1,25 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import api from '../services/api';
+import { Component } from 'react';
+
+export class App extends Component {
+  state = {
+    articles: [],
+    isLoading: false,
+    error: null,
+  };
+
+  async componentDidMount() {
+    this.setState({ isLoading: true });
+
+    try {
+      const articles = api.fetchArticlesWithQuery('react');
+      this.setState({ articles });
+    } catch (error) {
+      this.setState({ error });
+    } finally {
+      this.setState({ isLoading: false });
+    }
+  }
+
+  /* ... */
+}
