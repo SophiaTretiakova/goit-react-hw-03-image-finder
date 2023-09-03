@@ -1,21 +1,18 @@
 import { ImageGalleryItem } from './ImageGalleryItem';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
-export const ImageGallery = ({ images, handleLoadMore }) => {
+export const ImageGallery = ({ images }) => {
   return (
-    <ul className="gallery">
+    <ol className="gallery">
       {images.length > 0 &&
-        images.map(image => (
-          <ImageGalleryItem
-            key={image.id}
-            searchTitle={image.searchQuery}
-            url={image.webformatURL}
-          ></ImageGalleryItem>
-        ))}
-      <div>
+        images.map(image => {
+          return <ImageGalleryItem key={nanoid()} image={image} />;
+        })}
+      {/* <div>
         <button onClick={handleLoadMore}>Load more</button>
-      </div>
-    </ul>
+      </div> */}
+    </ol>
   );
 };
 

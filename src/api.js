@@ -8,8 +8,8 @@ export async function fetchImagesWithQuery(searchQuery, page) {
   const response = await axios.get(
     `https://pixabay.com/api/?q=${searchQuery}&page=${page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`
   );
-  console.log(response.data.hits);
-  return response.data.hits;
+  //console.log(response.data.hits);
+  return { images: response.data.hits, totalHits: response.data.totalHits };
 }
 
 // export async function fetchImagesWithQuery(searchQuery, page) {

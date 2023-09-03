@@ -1,9 +1,13 @@
 // import propTypes from 'prop-types';
 
-export const ImageGalleryItem = ({ searchTitle, url }) => {
+export const ImageGalleryItem = ({ image }) => {
   return (
     <li className="gallery-item">
-      <img src={url} alt={searchTitle} />
+      <img
+        src={image.webformatURL}
+        // large={image.largeImageURL}
+        alt={image.tags}
+      />
     </li>
   );
 };
