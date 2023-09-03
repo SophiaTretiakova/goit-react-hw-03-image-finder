@@ -1,22 +1,13 @@
-import ModalImage from 'react-modal-image';
+import { ImageListItem, Image } from './ImageGalleryItem.styled';
 
 export const ImageGalleryItem = ({ image }) => {
   return (
-    <li className="gallery-item">
-      <ModalImage
+    <ImageListItem>
+      <Image
         small={image.webformatURL}
         large={image.largeImageURL}
         alt={image.tags}
       />
-    </li>
+    </ImageListItem>
   );
 };
-
-// ImageGalleryItem.propTypes = {
-//   images: propTypes.arrayOf(
-//     propTypes.shape({
-//       searchTitle: propTypes.string,
-//       url: propTypes.string,
-//     })
-//   ),
-// };

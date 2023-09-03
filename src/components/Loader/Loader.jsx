@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from 'react-loader-spinner';
-import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Loader = ({ isLoading }) => {
   return (
@@ -14,4 +14,8 @@ export const Loader = ({ isLoading }) => {
       color="#e15b64"
     />
   );
+};
+
+Loader.propTypes = {
+  isLoading: PropTypes.bool,
 };

@@ -4,6 +4,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
+import { GlobalStyles } from './GlobalStyles.styled';
 
 export class App extends Component {
   state = {
@@ -78,9 +79,8 @@ export class App extends Component {
   render() {
     const { images } = this.state;
     return (
-      <div>
+      <>
         <Searchbar onSubmit={this.handelSubmit} />
-
         {!this.state.error && (
           <>
             <ImageGallery
@@ -93,7 +93,8 @@ export class App extends Component {
           </>
         )}
         <Loader isLoading={this.state.isLoading} />
-      </div>
+        <GlobalStyles />
+      </>
     );
   }
 }

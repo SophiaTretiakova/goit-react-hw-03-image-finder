@@ -1,12 +1,21 @@
+import {
+  SearchbarHead,
+  SearchForm,
+  SearchFormButton,
+  ButtonLabel,
+  SearchFormInput,
+} from './Searchbar.styled';
+//import PropTypes from 'prop-types';
+
 export const Searchbar = ({ onSubmit }) => {
   return (
-    <header className="searchbar">
-      <form className="form" onSubmit={onSubmit}>
-        <button type="submit" className="button">
-          <span className="button-label">Search</span>
-        </button>
+    <SearchbarHead>
+      <SearchForm onSubmit={onSubmit}>
+        <SearchFormButton type="submit">
+          <ButtonLabel>Search</ButtonLabel>
+        </SearchFormButton>
 
-        <input
+        <SearchFormInput
           className="input"
           name="query"
           type="text"
@@ -14,7 +23,7 @@ export const Searchbar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search images and photos"
         />
-      </form>
-    </header>
+      </SearchForm>
+    </SearchbarHead>
   );
 };

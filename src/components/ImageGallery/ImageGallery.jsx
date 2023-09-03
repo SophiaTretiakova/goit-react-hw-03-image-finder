@@ -1,10 +1,11 @@
 import { ImageGalleryItem } from './ImageGalleryItem';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { ImageList } from './ImageGallery.styled';
 
 export const ImageGallery = ({ images }) => {
   return (
-    <ol className="gallery">
+    <ImageList>
       {images.length > 0 &&
         images.map(image => {
           return <ImageGalleryItem key={nanoid()} image={image} />;
@@ -12,7 +13,7 @@ export const ImageGallery = ({ images }) => {
       {/* <div>
         <button onClick={handleLoadMore}>Load more</button>
       </div> */}
-    </ol>
+    </ImageList>
   );
 };
 
