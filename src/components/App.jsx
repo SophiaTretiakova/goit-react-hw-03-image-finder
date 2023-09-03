@@ -5,6 +5,8 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
 import { GlobalStyles } from './GlobalStyles.styled';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class App extends Component {
   state = {
@@ -56,7 +58,7 @@ export class App extends Component {
             hasMoreImages: false,
             isLoading: false,
           });
-          console.log('There is no images for query like that.');
+          toast('There is no images for query like that.');
           return;
         }
         this.setState({
@@ -64,7 +66,7 @@ export class App extends Component {
           hasMoreImages: this.state.page * 12 < totalHits ? true : false,
         });
       } catch (error) {
-        console.log('Oops there is an error ocurred! Try to reload the page.');
+        toast('Oops there is an error ocurred! Try to reload the page.');
         this.setState({
           error: true,
         });
@@ -94,6 +96,7 @@ export class App extends Component {
         )}
         <Loader isLoading={this.state.isLoading} />
         <GlobalStyles />
+        <ToastContainer />
       </>
     );
   }

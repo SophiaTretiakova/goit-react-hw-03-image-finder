@@ -8,7 +8,7 @@ export const Loader = ({ isLoading }) => {
       height="80"
       width="80"
       ariaLabel="MagnifyingGlass-loading"
-      wrapperStyle={{}}
+      wrapperStyle={{ position: 'fixed', top: '50%', left: '50% ' }}
       wrapperClass="MagnifyingGlass-wrapper"
       glassColor="#c0efff"
       color="#e15b64"
