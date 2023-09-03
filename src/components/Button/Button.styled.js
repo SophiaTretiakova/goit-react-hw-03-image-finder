@@ -6,7 +6,6 @@ export const LoadMoreButton = styled.button`
   background-color: #3f51b5;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
-  /* display: inline-block; */
   display: flex;
   justify-self: center;
   align-self: center;

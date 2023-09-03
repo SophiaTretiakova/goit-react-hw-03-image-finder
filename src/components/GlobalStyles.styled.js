@@ -5,7 +5,8 @@ export const GlobalStyles = createGlobalStyle`html {
   width: 100vw;
   overflow-x: hidden;
 }
-#root{ margin: 0;
+#root{ 
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #212121;
