@@ -1,11 +1,11 @@
-// import propTypes from 'prop-types';
+import ModalImage from 'react-modal-image';
 
 export const ImageGalleryItem = ({ image }) => {
   return (
     <li className="gallery-item">
-      <img
-        src={image.webformatURL}
-        // large={image.largeImageURL}
+      <ModalImage
+        small={image.webformatURL}
+        large={image.largeImageURL}
         alt={image.tags}
       />
     </li>

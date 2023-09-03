@@ -22,6 +22,7 @@ ImageGallery.propTypes = {
       id: PropTypes.number,
       searchQuery: PropTypes.string,
       webformatURL: PropTypes.string,
+      tags: PropTypes.string,
     })
   ),
 };

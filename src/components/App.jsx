@@ -2,45 +2,10 @@ import { fetchImagesWithQuery } from 'api';
 import { Component } from 'react';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Searchbar } from './Searchbar/Searchbar';
-//import axios from 'axios';
+import { Loader } from './Loader/Loader';
+import { Button } from './Button/Button';
 
 export class App extends Component {
-  // // async componentDidMount() {
-  // //   this.setState({ isLoading: true });
-
-  // //   try {
-  // //     if (this.state.query) {
-  // //       const imagesData = await fetchImagesWithQuery(
-  // //         this.state.query,
-  // //         this.state.page
-  // //       );
-  // //       this.setState({ images: imagesData });
-  // //       // console.log(`this.state.query`, this.state.query);
-  // //     }
-  // //     // console.log(`no this.state.query`, this.state.query);
-  // //   } catch (error) {
-  // //     this.setState({ error });
-  // //   } finally {
-  // //     this.setState({ isLoading: false });
-  // //   }
-  // // }
-  // async componentDidMount() {
-  //   this.setState({ isLoading: true });
-
-  //   try {
-  //     if (this.state.query) {
-  //       const imagesData = await fetchImagesWithQuery(
-  //         this.state.query,
-  //         this.state.page
-  //       );
-  //       this.setState({ images: imagesData });
-  //     }
-  //   } catch (error) {
-  //     this.setState({ error });
-  //   } finally {
-  //     this.setState({ isLoading: false });
-  //   }
-  // }
   state = {
     images: [],
     isLoading: false,
@@ -111,17 +76,23 @@ export class App extends Component {
   }
 
   render() {
-    const { images, isLoading } = this.state;
+    const { images } = this.state;
     return (
       <div>
         <Searchbar onSubmit={this.handelSubmit} />
-        {/* {isLoading ? (
-          <p>Loading...</p>
-        ) : ()} */}
-        <ImageGallery images={images} handleLoadMore={this.handleLoadMore} />
-        {this.state.hasMoreImages && (
-          <button onClick={this.handleLoadMore}>Load more</button>
+
+        {!this.state.error && (
+          <>
+            <ImageGallery
+              images={images}
+              handleLoadMore={this.handleLoadMore}
+            />
+            {this.state.hasMoreImages && (
+              <Button onClick={this.handleLoadMore}></Button>
+            )}
+          </>
         )}
+        <Loader isLoading={this.state.isLoading} />
       </div>
     );
   }
